@@ -105,10 +105,14 @@
     .card-terisi-pulse {
       animation: customPulse 2.5s infinite;
     }
+
+    .nav-item.active-nav {
+      color: #22d3ee;
+    }
   </style>
 </head>
 
-<body class="p-3 sm:p-5 max-w-md mx-auto min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="p-3 sm:p-5 pb-28 max-w-md mx-auto min-h-screen flex flex-col justify-between overflow-x-hidden">
 
   <header class="relative mb-5 pt-2">
     <div
@@ -137,31 +141,6 @@
       <p class="text-[9px] text-slate-400 tracking-widest uppercase border-t border-slate-800/80 pt-2 w-full text-center">
         BUKU LAPORAN TAMU RESMI
       </p>
-
-      <button onclick="toggleMenu()" class="absolute top-3 right-3 text-slate-300 hover:text-white p-2 rounded-lg hover:bg-slate-800/60 transition">
-        <i class="fa-solid fa-ellipsis-vertical text-lg"></i>
-      </button>
-    </div>
-
-    <div id="navMenu"
-      class="hidden absolute right-2 top-16 w-56 bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl z-50 py-2 backdrop-blur-lg">
-      <button onclick="switchView('form')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-200 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center space-x-2">
-        <i class="fa-solid fa-file-pen w-5 text-cyan-400"></i>
-        <span>Form Laporan</span>
-      </button>
-      <button onclick="switchView('kamar')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-200 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center space-x-2">
-        <i class="fa-solid fa-bed w-5 text-cyan-400"></i>
-        <span>DATA KAMAR</span>
-      </button>
-      <button onclick="switchView('pengeluaran')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-200 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center space-x-2">
-        <i class="fa-solid fa-wallet w-5 text-cyan-400"></i>
-        <span>Catatan Pengeluaran</span>
-      </button>
-      <div class="my-1 border-t border-slate-800"></div>
-      <button onclick="switchView('admin')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-200 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center space-x-2">
-        <i class="fa-solid fa-user-shield w-5 text-cyan-400"></i>
-        <span>Admin Master</span>
-      </button>
     </div>
   </header>
 
@@ -187,12 +166,12 @@
             NOMOR KAMAR <span class="text-red-500">*</span>
           </label>
           <div class="grid grid-cols-2 gap-3">
-            <button type="button" onclick="selectRoom('Kamar 14B', this)" class="btn-option room-btn py-5 text-base font-black rounded-2xl active shadow-md">Kamar 14B</button>
-            <button type="button" onclick="selectRoom('Kamar 15', this)" class="btn-option room-btn py-5 text-base font-black rounded-2xl shadow-md">Kamar 15</button>
-            <button type="button" onclick="selectRoom('Kamar 16', this)" class="btn-option room-btn py-5 text-base font-black rounded-2xl shadow-md">Kamar 16</button>
-            <button type="button" onclick="selectRoom('Kamar 19', this)" class="btn-option room-btn py-5 text-base font-black rounded-2xl shadow-md">Kamar 19</button>
+            <button type="button" onclick="selectRoom('Kamar 201', this)" class="btn-option room-btn py-5 text-base font-black rounded-2xl active shadow-md">Kamar 201</button>
+            <button type="button" onclick="selectRoom('Kamar 202', this)" class="btn-option room-btn py-5 text-base font-black rounded-2xl shadow-md">Kamar 202</button>
+            <button type="button" onclick="selectRoom('Kamar 203', this)" class="btn-option room-btn py-5 text-base font-black rounded-2xl shadow-md">Kamar 203</button>
+            <button type="button" onclick="selectRoom('Kamar 204', this)" class="btn-option room-btn py-5 text-base font-black rounded-2xl shadow-md">Kamar 204</button>
           </div>
-          <input type="hidden" id="selectedRoom" value="Kamar 14B">
+          <input type="hidden" id="selectedRoom" value="Kamar 201">
         </div>
 
         <!-- JENIS ORDERAN & RENTANG TANGGAL CHECK-IN -->
@@ -397,36 +376,36 @@
       </div>
 
       <div class="grid grid-cols-2 gap-3">
-        <div id="roomCard-14B" class="card-dark p-3.5 space-y-2 relative overflow-hidden flex flex-col justify-between">
+        <div id="roomCard-201" class="card-dark p-3.5 space-y-2 relative overflow-hidden flex flex-col justify-between">
           <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <p class="text-xs font-black text-white uppercase tracking-wider">KAMAR 14B</p>
-            <span id="badge-14B" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">KOSONG</span>
+            <p class="text-xs font-black text-white uppercase tracking-wider">KAMAR 201</p>
+            <span id="badge-201" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">KOSONG</span>
           </div>
-          <div id="content-14B" class="py-2"></div>
+          <div id="content-201" class="py-2"></div>
         </div>
 
-        <div id="roomCard-15" class="card-dark p-3.5 space-y-2 relative overflow-hidden flex flex-col justify-between">
+        <div id="roomCard-202" class="card-dark p-3.5 space-y-2 relative overflow-hidden flex flex-col justify-between">
           <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <p class="text-xs font-black text-white uppercase tracking-wider">KAMAR 15</p>
-            <span id="badge-15" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">KOSONG</span>
+            <p class="text-xs font-black text-white uppercase tracking-wider">KAMAR 202</p>
+            <span id="badge-202" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">KOSONG</span>
           </div>
-          <div id="content-15" class="py-2"></div>
+          <div id="content-202" class="py-2"></div>
         </div>
 
-        <div id="roomCard-16" class="card-dark p-3.5 space-y-2 relative overflow-hidden flex flex-col justify-between">
+        <div id="roomCard-203" class="card-dark p-3.5 space-y-2 relative overflow-hidden flex flex-col justify-between">
           <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <p class="text-xs font-black text-white uppercase tracking-wider">KAMAR 16</p>
-            <span id="badge-16" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">KOSONG</span>
+            <p class="text-xs font-black text-white uppercase tracking-wider">KAMAR 203</p>
+            <span id="badge-203" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">KOSONG</span>
           </div>
-          <div id="content-16" class="py-2"></div>
+          <div id="content-203" class="py-2"></div>
         </div>
 
-        <div id="roomCard-19" class="card-dark p-3.5 space-y-2 relative overflow-hidden flex flex-col justify-between">
+        <div id="roomCard-204" class="card-dark p-3.5 space-y-2 relative overflow-hidden flex flex-col justify-between">
           <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-            <p class="text-xs font-black text-white uppercase tracking-wider">KAMAR 19</p>
-            <span id="badge-19" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">KOSONG</span>
+            <p class="text-xs font-black text-white uppercase tracking-wider">KAMAR 204</p>
+            <span id="badge-204" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-400 border border-slate-700">KOSONG</span>
           </div>
-          <div id="content-19" class="py-2"></div>
+          <div id="content-204" class="py-2"></div>
         </div>
       </div>
 
@@ -489,17 +468,17 @@
           </div>
 
           <div id="wrapperRincianToken" class="hidden grid grid-cols-2 gap-2 mt-2">
-            <button type="button" onclick="selectTokenRoom('Kamar 14B')" class="btn-token-room bg-slate-800 border border-slate-700 p-3 rounded-xl text-center text-white hover:border-cyan-500 transition font-semibold text-xs" data-room="Kamar 14B">
-              Kamar 14B
+            <button type="button" onclick="selectTokenRoom('Kamar 201')" class="btn-token-room bg-slate-800 border border-slate-700 p-3 rounded-xl text-center text-white hover:border-cyan-500 transition font-semibold text-xs" data-room="Kamar 201">
+              Kamar 201
             </button>
-            <button type="button" onclick="selectTokenRoom('Kamar 15')" class="btn-token-room bg-slate-800 border border-slate-700 p-3 rounded-xl text-center text-white hover:border-cyan-500 transition font-semibold text-xs" data-room="Kamar 15">
-              Kamar 15
+            <button type="button" onclick="selectTokenRoom('Kamar 202')" class="btn-token-room bg-slate-800 border border-slate-700 p-3 rounded-xl text-center text-white hover:border-cyan-500 transition font-semibold text-xs" data-room="Kamar 202">
+              Kamar 202
             </button>
-            <button type="button" onclick="selectTokenRoom('Kamar 16')" class="btn-token-room bg-slate-800 border border-slate-700 p-3 rounded-xl text-center text-white hover:border-cyan-500 transition font-semibold text-xs" data-room="Kamar 16">
-              Kamar 16
+            <button type="button" onclick="selectTokenRoom('Kamar 203')" class="btn-token-room bg-slate-800 border border-slate-700 p-3 rounded-xl text-center text-white hover:border-cyan-500 transition font-semibold text-xs" data-room="Kamar 203">
+              Kamar 203
             </button>
-            <button type="button" onclick="selectTokenRoom('Kamar 19')" class="btn-token-room bg-slate-800 border border-slate-700 p-3 rounded-xl text-center text-white hover:border-cyan-500 transition font-semibold text-xs" data-room="Kamar 19">
-              Kamar 19
+            <button type="button" onclick="selectTokenRoom('Kamar 204')" class="btn-token-room bg-slate-800 border border-slate-700 p-3 rounded-xl text-center text-white hover:border-cyan-500 transition font-semibold text-xs" data-room="Kamar 204">
+              Kamar 204
             </button>
           </div>
         </div>
@@ -888,6 +867,45 @@
 
   </main>
 
+  <footer class="mt-8 text-center text-[10px] text-slate-500 font-mono pb-2">
+    &copy; 2026 Andara Wijaya Room Cirebon. All rights reserved.
+  </footer>
+
+  <!-- NAVIGASI BAWAH: INPUT LAPORAN DI URUTAN PERTAMA UJUNG KIRI (BESAR) -->
+  <nav class="fixed bottom-0 inset-x-0 z-40 bg-[#080d1a]/95 backdrop-blur-md border-t border-slate-800/90 shadow-2xl">
+    <div class="max-w-md mx-auto px-2 py-2 grid grid-cols-[1.44fr_0.86fr_0.85fr_0.85fr] items-end gap-1.5">
+
+      <!-- 1. UJUNG KIRI: INPUT LAPORAN (BESAR / MENONJOL) -->
+      <button type="button" id="nav-form" onclick="switchView('form')"
+        class="nav-item active-nav w-full flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-cyan-500/15 border border-cyan-400/50 text-cyan-300 shadow-lg shadow-cyan-500/15 transition active:scale-95">
+        <i class="fa-solid fa-file-pen text-base mb-1"></i>
+        <span class="text-[10.5px] font-black uppercase tracking-wide leading-none whitespace-nowrap">INPUT LAPORAN</span>
+      </button>
+
+      <!-- 2. DATA KAMAR -->
+      <button type="button" id="nav-kamar" onclick="switchView('kamar')"
+        class="nav-item w-full flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
+        <i class="fa-solid fa-bed text-xs mb-1"></i>
+        <span class="text-[8.5px] font-bold uppercase tracking-tight leading-none whitespace-nowrap">DATA KAMAR</span>
+      </button>
+
+      <!-- 3. PENGELUARAN -->
+      <button type="button" id="nav-pengeluaran" onclick="switchView('pengeluaran')"
+        class="nav-item w-full flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
+        <i class="fa-solid fa-wallet text-xs mb-1"></i>
+        <span class="text-[8.5px] font-bold uppercase tracking-tight leading-none whitespace-nowrap">PENGELUARAN</span>
+      </button>
+
+      <!-- 4. ADMIN -->
+      <button type="button" id="nav-admin" onclick="switchView('admin')"
+        class="nav-item w-full flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
+        <i class="fa-solid fa-user-shield text-xs mb-1"></i>
+        <span class="text-[8.5px] font-bold uppercase tracking-tight leading-none whitespace-nowrap">ADMIN</span>
+      </button>
+
+    </div>
+  </nav>
+
   <!-- MODAL KUSTOM PILIH RENTANG TANGGAL CHECK-IN -->
   <div id="dateRangeModal"
     class="hidden fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 flex items-center justify-center p-4">
@@ -994,10 +1012,6 @@
       </button>
     </div>
   </div>
-
-  <footer class="mt-8 text-center text-[10px] text-slate-500 font-mono pb-2">
-    &copy; 2026 Andara Wijaya Room Cirebon. All rights reserved.
-  </footer>
 
   <!-- SCRIPT LOGIKA UTAMA APLIKASI -->
   <script>
@@ -1194,9 +1208,37 @@
       }
     }
 
-    function toggleMenu() {
-      const menu = document.getElementById("navMenu");
-      if (menu) menu.classList.toggle("hidden");
+    function updateActiveNav(viewName) {
+      document.querySelectorAll(".nav-item").forEach(btn => {
+        btn.classList.remove("active-nav", "bg-cyan-500/15", "border", "border-cyan-400/50", "text-cyan-300", "shadow-lg", "shadow-cyan-500/15", "py-2.5", "px-2", "rounded-2xl");
+        btn.classList.add("w-full", "text-slate-400", "py-1.5", "px-1", "rounded-xl");
+        const icon = btn.querySelector("i");
+        const label = btn.querySelector("span");
+        if (icon) {
+          icon.classList.remove("text-base");
+          icon.classList.add("text-xs");
+        }
+        if (label) {
+          label.classList.remove("text-[10.5px]", "text-[11px]", "font-black", "tracking-wide");
+          label.classList.add("text-[8.5px]", "font-bold", "tracking-tight");
+        }
+      });
+
+      const activeBtn = document.getElementById("nav-" + viewName);
+      if (activeBtn) {
+        activeBtn.classList.remove("text-slate-400", "py-1.5", "px-1", "rounded-xl");
+        activeBtn.classList.add("w-full", "active-nav", "bg-cyan-500/15", "border", "border-cyan-400/50", "text-cyan-300", "shadow-lg", "shadow-cyan-500/15", "py-2.5", "px-2", "rounded-2xl");
+        const icon = activeBtn.querySelector("i");
+        const label = activeBtn.querySelector("span");
+        if (icon) {
+          icon.classList.remove("text-xs");
+          icon.classList.add("text-base");
+        }
+        if (label) {
+          label.classList.remove("text-[8.5px]", "text-[9px]", "font-bold", "tracking-tight");
+          label.classList.add("text-[10.5px]", "font-black", "tracking-wide");
+        }
+      }
     }
 
     function switchView(viewName) {
@@ -1209,7 +1251,8 @@
       const target = document.getElementById(viewName + "View");
       if (target) target.classList.remove("hidden");
 
-      toggleMenu();
+      updateActiveNav(viewName);
+      window.scrollTo({ top: 0, behavior: "smooth" });
 
       if (viewName === "admin") {
         const isLogged = sessionStorage.getItem("adminLoggedIn");
@@ -1978,7 +2021,7 @@
         let startLastObj = new Date(startCurObj);
         startLastObj.setDate(startCurObj.getDate() - 7);
         let endLastObj = new Date(endCurObj);
-        endLastObj.setDate(endLastObj.getDate() - 7);
+        endLastObj.setDate(endCurObj.getDate() - 7);
 
         let startCurStr = `${startCurObj.getFullYear()}-${String(startCurObj.getMonth() + 1).padStart(2, '0')}-${String(startCurObj.getDate()).padStart(2, '0')}`;
         let endCurStr = `${endCurObj.getFullYear()}-${String(endCurObj.getMonth() + 1).padStart(2, '0')}-${String(endCurObj.getDate()).padStart(2, '0')}`;
@@ -2157,7 +2200,6 @@
     }
 
     function renderCharts() {
-      // 1. GRAFIK HARIAN (Mengikuti filter mingguan: Minggu Ini / Minggu Lalu)
       const dailyCtx = document.getElementById("dailyChart");
       if (dailyCtx) {
         let days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
@@ -2216,7 +2258,6 @@
         });
       }
 
-      // 2. GRAFIK BULANAN (Mengikuti pilihan filter tahun)
       const monthlyCtx = document.getElementById("monthlyChart");
       if (monthlyCtx) {
         let months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
@@ -2264,9 +2305,8 @@
       }
     }
 
-
     function updateRoomStatuses() {
-      const rooms = ["14B", "15", "16", "19"];
+      const rooms = ["201", "202", "203", "204"];
       const now = new Date();
       const currentTotalMins = now.getHours() * 60 + now.getMinutes();
       const currentTimestamp = now.getTime();
