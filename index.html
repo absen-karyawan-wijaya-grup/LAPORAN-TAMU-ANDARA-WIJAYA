@@ -109,10 +109,14 @@
     .nav-item.active-nav {
       color: #22d3ee;
     }
+
+    .nav-center-fab {
+      transform: translateY(-14px);
+    }
   </style>
 </head>
 
-<body class="p-3 sm:p-5 pb-28 max-w-md mx-auto min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="p-3 sm:p-5 pb-32 max-w-md mx-auto min-h-screen flex flex-col justify-between overflow-x-hidden">
 
   <header class="relative mb-5 pt-2">
     <div
@@ -154,7 +158,7 @@
           LAPORAN TAMU WAJIB DI ISI TEAM ANDARA WIJAYA
         </h2>
         <p class="text-[11px] text-slate-400">
-          Wajib di isi setelah tamu baru masuk kamar.
+          wajib input saat transaksi berlangsung didepan customer
         </p>
       </div>
 
@@ -364,7 +368,7 @@
       </form>
     </section>
 
-    <!-- DATA KAMAR VIEW -->
+    <!-- STATUS KAMAR VIEW -->
     <section id="kamarView" class="hidden space-y-4">
       <div class="card-dark p-4 space-y-1">
         <h2 class="text-xs font-bold text-white uppercase tracking-wider">
@@ -871,36 +875,45 @@
     &copy; 2026 Andara Wijaya Room Cirebon. All rights reserved.
   </footer>
 
-  <!-- NAVIGASI BAWAH: INPUT LAPORAN DI URUTAN PERTAMA UJUNG KIRI (BESAR) -->
-  <nav class="fixed bottom-0 inset-x-0 z-40 bg-[#080d1a]/95 backdrop-blur-md border-t border-slate-800/90 shadow-2xl">
-    <div class="max-w-md mx-auto px-2 py-2 grid grid-cols-[1.44fr_0.86fr_0.85fr_0.85fr] items-end gap-1.5">
+  <!-- NAVIGASI BAWAH: WARNA & KONTRAS PROFESIONAL -->
+  <nav class="fixed bottom-0 inset-x-0 z-40 bg-[#0c1424]/95 backdrop-blur-md border-t border-slate-800/90 shadow-2xl rounded-t-3xl">
+    <div class="max-w-md mx-auto px-2 pt-2 pb-2.5 grid grid-cols-5 items-end gap-1">
 
-      <!-- 1. UJUNG KIRI: INPUT LAPORAN (BESAR / MENONJOL) -->
-      <button type="button" id="nav-form" onclick="switchView('form')"
-        class="nav-item active-nav w-full flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-cyan-500/15 border border-cyan-400/50 text-cyan-300 shadow-lg shadow-cyan-500/15 transition active:scale-95">
-        <i class="fa-solid fa-file-pen text-base mb-1"></i>
-        <span class="text-[10.5px] font-black uppercase tracking-wide leading-none whitespace-nowrap">INPUT LAPORAN</span>
-      </button>
-
-      <!-- 2. DATA KAMAR -->
+      <!-- 1. STATUS KAMAR -->
       <button type="button" id="nav-kamar" onclick="switchView('kamar')"
-        class="nav-item w-full flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
-        <i class="fa-solid fa-bed text-xs mb-1"></i>
-        <span class="text-[8.5px] font-bold uppercase tracking-tight leading-none whitespace-nowrap">DATA KAMAR</span>
+        class="nav-item flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
+        <i class="fa-solid fa-bed text-sm mb-1"></i>
+        <span class="text-[8px] font-bold uppercase tracking-tight leading-tight text-center">STATUS KAMAR</span>
       </button>
 
-      <!-- 3. PENGELUARAN -->
+      <!-- 2. PENGELUARAN -->
       <button type="button" id="nav-pengeluaran" onclick="switchView('pengeluaran')"
-        class="nav-item w-full flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
-        <i class="fa-solid fa-wallet text-xs mb-1"></i>
-        <span class="text-[8.5px] font-bold uppercase tracking-tight leading-none whitespace-nowrap">PENGELUARAN</span>
+        class="nav-item flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
+        <i class="fa-solid fa-wallet text-sm mb-1"></i>
+        <span class="text-[8px] font-bold uppercase tracking-tight leading-tight text-center">PENGELUARAN</span>
       </button>
+
+      <!-- 3. TENGAH: INPUT LAPORAN (LINGKARAN PROFESIONAL KONTRAS TINGGI) -->
+      <div class="flex flex-col items-center justify-center relative">
+        <button type="button" id="nav-form" onclick="switchView('form')"
+          class="nav-item active-nav nav-center-fab w-14 h-14 rounded-full bg-gradient-to-br from-[#0f2942] via-[#133b5c] to-[#0e2238] text-white border-2 border-cyan-400/90 shadow-lg shadow-cyan-950/80 ring-4 ring-[#080d1a] flex items-center justify-center transition duration-200 active:scale-95">
+          <i class="fa-solid fa-file-pen text-lg text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"></i>
+        </button>
+        <span id="nav-form-label" class="text-[8px] font-extrabold uppercase tracking-tight text-cyan-300 mt-0.5 leading-tight text-center whitespace-nowrap">INPUT LAPORAN</span>
+      </div>
 
       <!-- 4. ADMIN -->
       <button type="button" id="nav-admin" onclick="switchView('admin')"
-        class="nav-item w-full flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
-        <i class="fa-solid fa-user-shield text-xs mb-1"></i>
-        <span class="text-[8.5px] font-bold uppercase tracking-tight leading-none whitespace-nowrap">ADMIN</span>
+        class="nav-item flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
+        <i class="fa-solid fa-user-shield text-sm mb-1"></i>
+        <span class="text-[8px] font-bold uppercase tracking-tight leading-tight text-center">ADMIN</span>
+      </button>
+
+      <!-- 5. FORM BARU -->
+      <button type="button" onclick="switchView('form')"
+        class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-500 hover:text-cyan-300 transition">
+        <i class="fa-solid fa-rotate-right text-sm mb-1"></i>
+        <span class="text-[8px] font-bold uppercase tracking-tight leading-tight text-center">FORM BARU</span>
       </button>
 
     </div>
@@ -1209,34 +1222,37 @@
     }
 
     function updateActiveNav(viewName) {
+      const formBtn = document.getElementById("nav-form");
+      const formLabel = document.getElementById("nav-form-label");
+
       document.querySelectorAll(".nav-item").forEach(btn => {
-        btn.classList.remove("active-nav", "bg-cyan-500/15", "border", "border-cyan-400/50", "text-cyan-300", "shadow-lg", "shadow-cyan-500/15", "py-2.5", "px-2", "rounded-2xl");
-        btn.classList.add("w-full", "text-slate-400", "py-1.5", "px-1", "rounded-xl");
-        const icon = btn.querySelector("i");
-        const label = btn.querySelector("span");
-        if (icon) {
-          icon.classList.remove("text-base");
-          icon.classList.add("text-xs");
-        }
-        if (label) {
-          label.classList.remove("text-[10.5px]", "text-[11px]", "font-black", "tracking-wide");
-          label.classList.add("text-[8.5px]", "font-bold", "tracking-tight");
-        }
+        if (btn.id === "nav-form") return;
+        btn.classList.remove("active-nav", "text-cyan-300", "bg-cyan-500/10");
+        btn.classList.add("text-slate-400");
       });
 
-      const activeBtn = document.getElementById("nav-" + viewName);
-      if (activeBtn) {
-        activeBtn.classList.remove("text-slate-400", "py-1.5", "px-1", "rounded-xl");
-        activeBtn.classList.add("w-full", "active-nav", "bg-cyan-500/15", "border", "border-cyan-400/50", "text-cyan-300", "shadow-lg", "shadow-cyan-500/15", "py-2.5", "px-2", "rounded-2xl");
-        const icon = activeBtn.querySelector("i");
-        const label = activeBtn.querySelector("span");
-        if (icon) {
-          icon.classList.remove("text-xs");
-          icon.classList.add("text-base");
+      if (viewName === "form") {
+        if (formBtn) {
+          formBtn.classList.add("active-nav", "border-cyan-400", "from-[#123554] via-[#174a72] to-[#0f2942]");
+          formBtn.classList.remove("border-cyan-400/50");
         }
-        if (label) {
-          label.classList.remove("text-[8.5px]", "text-[9px]", "font-bold", "tracking-tight");
-          label.classList.add("text-[10.5px]", "font-black", "tracking-wide");
+        if (formLabel) {
+          formLabel.classList.add("text-cyan-300");
+          formLabel.classList.remove("text-slate-400");
+        }
+      } else {
+        if (formBtn) {
+          formBtn.classList.remove("active-nav", "border-cyan-400");
+          formBtn.classList.add("border-cyan-400/50");
+        }
+        if (formLabel) {
+          formLabel.classList.remove("text-cyan-300");
+          formLabel.classList.add("text-slate-400");
+        }
+        const activeBtn = document.getElementById("nav-" + viewName);
+        if (activeBtn) {
+          activeBtn.classList.remove("text-slate-400");
+          activeBtn.classList.add("active-nav", "text-cyan-300", "bg-cyan-500/10");
         }
       }
     }
