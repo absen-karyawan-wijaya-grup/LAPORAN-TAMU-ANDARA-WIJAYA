@@ -106,43 +106,89 @@
       animation: customPulse 2.5s infinite;
     }
 
+    /* Denyut Teks SOP Halus Tanpa Neon & Tanpa Silau */
+    @keyframes sopDenyutHalus {
+      0%, 100% {
+        color: #e2e8f0;
+        transform: scale(1);
+      }
+      50% {
+        color: #ffffff;
+        transform: scale(1.012);
+      }
+    }
+
+    /* Denyut List / Bingkai Biru SOP Bersamaan */
+    @keyframes listBiruDenyut {
+      0%, 100% {
+        border-color: rgba(34, 211, 238, 0.30);
+        box-shadow: 0 0 12px rgba(34, 211, 238, 0.06);
+      }
+      50% {
+        border-color: rgba(34, 211, 238, 0.72);
+        box-shadow: 0 0 18px rgba(34, 211, 238, 0.16);
+      }
+    }
+
+    .sop-denyut-halus {
+      display: inline-block;
+      animation: sopDenyutHalus 2.2s ease-in-out infinite;
+    }
+
+    .sop-card-biru-denyut {
+      border: 1px solid rgba(34, 211, 238, 0.30);
+      animation: listBiruDenyut 2.2s ease-in-out infinite;
+    }
+
     .nav-item.active-nav {
       color: #22d3ee;
     }
 
     .nav-center-fab {
-      transform: translateY(-14px);
+      transform: translateY(-10px);
     }
   </style>
 </head>
 
-<body class="p-3 sm:p-5 pb-32 max-w-md mx-auto min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="p-3 sm:p-5 pb-36 max-w-md mx-auto min-h-screen flex flex-col justify-between overflow-x-hidden">
 
-  <header class="relative mb-5 pt-2">
+  <!-- HEADER UTAMA: BACKGROUND FOTO KAMAR DRIVE (SOROTAN AGAK KE BAWAH) -->
+  <header class="relative mb-4 pt-2">
     <div
-      class="card-dark p-4 flex flex-col items-center justify-center text-center space-y-3 relative overflow-hidden border border-cyan-500/20 shadow-xl bg-black">
-      <div class="absolute -top-12 -left-12 w-28 h-28 bg-cyan-500/10 rounded-full blur-xl pointer-events-none"></div>
-      <div class="absolute -bottom-12 -right-12 w-28 h-28 bg-blue-500/10 rounded-full blur-xl pointer-events-none"></div>
+      class="card-dark min-h-[176px] p-4 flex flex-col justify-between relative overflow-hidden border border-white/15 shadow-xl bg-[#070b14]">
+      
+      <!-- Background Foto Kamar dari Google Drive (Geser Posisi ke Bawah) -->
+      <img
+        src="https://drive.google.com/thumbnail?id=1xa9RD6jiNDQau0eW31e_OUMG6T4Tc9Ak&sz=w1200"
+        alt="Kamar Andara Wijaya"
+        class="absolute inset-0 w-full h-full object-cover object-[50%_72%] opacity-90 pointer-events-none"
+        onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1xa9RD6jiNDQau0eW31e_OUMG6T4Tc9Ak';"
+      >
 
-      <div class="flex items-center justify-center space-x-3 py-1">
+      <!-- Lapisan Gelap Tipis Merata agar Teks Putih & Logo Tetap Tajam -->
+      <div class="absolute inset-0 bg-[#070b14]/45 pointer-events-none"></div>
+
+      <!-- Konten Logo & Judul -->
+      <div class="relative z-10 flex items-center justify-center space-x-3.5 my-auto py-1">
         <div
-          class="w-12 h-12 flex items-center justify-center rounded-2xl border border-cyan-500/40 shadow-lg bg-black shrink-0 p-1 overflow-hidden">
+          class="w-14 h-14 flex items-center justify-center rounded-2xl border border-white/30 bg-white/5 backdrop-blur-[2px] shadow-md shrink-0 p-1.5 overflow-hidden">
           <img
-            src="https://lh3.googleusercontent.com/d/1b4dgs0SBpyZEny-nYr7_-F91zhR-_Zap"
+            src="https://drive.google.com/thumbnail?id=1b4dgs0SBpyZEny-nYr7_-F91zhR-_Zap&sz=w400"
             alt="Logo Andara Wijaya"
-            class="w-full h-full object-contain"
-            onerror="this.onerror=null; this.src='https://placehold.co/100x100/00f2fe/000000?text=AW';"
+            class="w-full h-full object-contain drop-shadow"
+            onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1b4dgs0SBpyZEny-nYr7_-F91zhR-_Zap';"
           >
         </div>
 
         <div class="text-left">
-          <h1 class="text-base font-black tracking-wider text-white leading-tight">ANDARA WIJAYA</h1>
-          <p class="text-[11px] font-extrabold text-cyan-400 tracking-wide mt-0.5">ROOM CIREBON</p>
-          <p class="text-[10px] text-slate-400 font-mono font-medium">081382497617</p>
+          <h1 class="text-base font-black tracking-wider text-white leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">ANDARA WIJAYA</h1>
+          <p class="text-[11px] font-extrabold text-white tracking-wide mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">ROOM CIREBON</p>
+          <p class="text-[10px] text-slate-200 font-mono font-medium mt-0.5 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]">081382497617</p>
         </div>
       </div>
 
-      <p class="text-[9px] text-slate-400 tracking-widest uppercase border-t border-slate-800/80 pt-2 w-full text-center">
+      <!-- Footer Kecil di Dalam Card -->
+      <p class="relative z-10 text-[9px] text-slate-200/95 font-semibold tracking-[0.2em] uppercase pt-2 w-full text-center drop-shadow">
         BUKU LAPORAN TAMU RESMI
       </p>
     </div>
@@ -153,12 +199,13 @@
     <!-- FORM VIEW -->
     <section id="formView" class="space-y-4">
 
-      <div class="card-dark p-4 space-y-1">
-        <h2 class="text-xs font-bold text-white uppercase tracking-wider">
-          LAPORAN TAMU WAJIB DI ISI TEAM ANDARA WIJAYA
+      <!-- 1. CARD SOP: FONT SEPERTI VIDEO + DENYUT HALUS + LIST BIRU BERDENYUT -->
+      <div class="card-dark sop-card-biru-denyut px-4 py-3.5 text-center space-y-1">
+        <h2 class="text-xs font-extrabold text-white uppercase tracking-wider">
+          PROSEDUR OPERASIONAL STANDAR (SOP)
         </h2>
-        <p class="text-[11px] text-slate-400">
-          wajib input saat transaksi berlangsung didepan customer
+        <p class="text-[10.5px] font-normal leading-relaxed sop-denyut-halus">
+          Wajib input data tamu saat transaksi sedang berlangsung bersama pelanggan.
         </p>
       </div>
 
@@ -875,47 +922,63 @@
     &copy; 2026 Andara Wijaya Room Cirebon. All rights reserved.
   </footer>
 
-  <!-- NAVIGASI BAWAH: WARNA & KONTRAS PROFESIONAL -->
-  <nav class="fixed bottom-0 inset-x-0 z-40 bg-[#0c1424]/95 backdrop-blur-md border-t border-slate-800/90 shadow-2xl rounded-t-3xl">
-    <div class="max-w-md mx-auto px-2 pt-2 pb-2.5 grid grid-cols-5 items-end gap-1">
-
-      <!-- 1. STATUS KAMAR -->
-      <button type="button" id="nav-kamar" onclick="switchView('kamar')"
-        class="nav-item flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
-        <i class="fa-solid fa-bed text-sm mb-1"></i>
-        <span class="text-[8px] font-bold uppercase tracking-tight leading-tight text-center">STATUS KAMAR</span>
-      </button>
-
-      <!-- 2. PENGELUARAN -->
-      <button type="button" id="nav-pengeluaran" onclick="switchView('pengeluaran')"
-        class="nav-item flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
-        <i class="fa-solid fa-wallet text-sm mb-1"></i>
-        <span class="text-[8px] font-bold uppercase tracking-tight leading-tight text-center">PENGELUARAN</span>
-      </button>
-
-      <!-- 3. TENGAH: INPUT LAPORAN (LINGKARAN PROFESIONAL KONTRAS TINGGI) -->
-      <div class="flex flex-col items-center justify-center relative">
-        <button type="button" id="nav-form" onclick="switchView('form')"
-          class="nav-item active-nav nav-center-fab w-14 h-14 rounded-full bg-gradient-to-br from-[#0f2942] via-[#133b5c] to-[#0e2238] text-white border-2 border-cyan-400/90 shadow-lg shadow-cyan-950/80 ring-4 ring-[#080d1a] flex items-center justify-center transition duration-200 active:scale-95">
-          <i class="fa-solid fa-file-pen text-lg text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"></i>
-        </button>
-        <span id="nav-form-label" class="text-[8px] font-extrabold uppercase tracking-tight text-cyan-300 mt-0.5 leading-tight text-center whitespace-nowrap">INPUT LAPORAN</span>
+  <!-- 2. NAVIGASI BAWAH: GELOMBANG SEGITIGA LEMBUT MENGIKUTI TOMBOL TENGAH -->
+  <nav class="fixed bottom-3.5 inset-x-0 z-40 px-3">
+    <div class="relative max-w-md mx-auto pt-4">
+      
+      <!-- Latar Card Gelombang Cembung Mengikuti Lingkaran Tengah -->
+      <div class="absolute inset-0 pointer-events-none drop-shadow-[0_12px_32px_rgba(0,0,0,0.88)]">
+        <svg viewBox="0 0 400 84" preserveAspectRatio="none" class="w-full h-full">
+          <path
+            d="M 24 22 L 138 22 C 164 22 174 3 200 3 C 226 3 236 22 262 22 L 376 22 A 24 24 0 0 1 400 46 L 400 60 A 24 24 0 0 1 376 84 L 24 84 A 24 24 0 0 1 0 60 L 0 46 A 24 24 0 0 1 24 22 Z"
+            fill="rgba(12, 20, 36, 0.96)"
+            stroke="rgba(51, 65, 85, 0.85)"
+            stroke-width="1.2"
+          />
+        </svg>
       </div>
 
-      <!-- 4. ADMIN -->
-      <button type="button" id="nav-admin" onclick="switchView('admin')"
-        class="nav-item flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-400 hover:text-cyan-300 transition">
-        <i class="fa-solid fa-user-shield text-sm mb-1"></i>
-        <span class="text-[8px] font-bold uppercase tracking-tight leading-tight text-center">ADMIN</span>
-      </button>
+      <!-- Konten 5 Tombol Navigasi -->
+      <div class="relative z-10 px-2 pt-2.5 pb-3 grid grid-cols-5 items-end gap-1">
 
-      <!-- 5. FORM BARU -->
-      <button type="button" onclick="switchView('form')"
-        class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-slate-500 hover:text-cyan-300 transition">
-        <i class="fa-solid fa-rotate-right text-sm mb-1"></i>
-        <span class="text-[8px] font-bold uppercase tracking-tight leading-tight text-center">FORM BARU</span>
-      </button>
+        <!-- 1. STATUS KAMAR -->
+        <button type="button" id="nav-kamar" onclick="switchView('kamar')"
+          class="nav-item flex flex-col items-center justify-end min-h-[54px] py-1.5 px-1 rounded-2xl text-slate-300 hover:text-cyan-300 active:scale-95 transition">
+          <i class="fa-solid fa-bed text-base mb-1.5"></i>
+          <span class="text-[8.5px] font-extrabold uppercase tracking-tight leading-none text-center whitespace-nowrap">STATUS KAMAR</span>
+        </button>
 
+        <!-- 2. PENGELUARAN -->
+        <button type="button" id="nav-pengeluaran" onclick="switchView('pengeluaran')"
+          class="nav-item flex flex-col items-center justify-end min-h-[54px] py-1.5 px-1 rounded-2xl text-slate-300 hover:text-cyan-300 active:scale-95 transition">
+          <i class="fa-solid fa-wallet text-base mb-1.5"></i>
+          <span class="text-[8.5px] font-extrabold uppercase tracking-tight leading-none text-center whitespace-nowrap">PENGELUARAN</span>
+        </button>
+
+        <!-- 3. TENGAH: INPUT LAPORAN -->
+        <div class="flex flex-col items-center justify-end min-h-[54px] py-1.5 relative">
+          <button type="button" id="nav-form" onclick="switchView('form')"
+            class="nav-item active-nav nav-center-fab w-14 h-14 rounded-full bg-gradient-to-br from-[#0f2942] via-[#133b5c] to-[#0e2238] text-white border-2 border-cyan-400/90 shadow-lg shadow-cyan-950/80 ring-4 ring-[#080d1a] flex items-center justify-center transition duration-200 active:scale-95 -mb-0.5">
+            <i class="fa-solid fa-file-pen text-lg text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"></i>
+          </button>
+          <span id="nav-form-label" class="text-[8.5px] font-extrabold uppercase tracking-tight text-cyan-300 leading-none text-center whitespace-nowrap">INPUT LAPORAN</span>
+        </div>
+
+        <!-- 4. ADMIN -->
+        <button type="button" id="nav-admin" onclick="switchView('admin')"
+          class="nav-item flex flex-col items-center justify-end min-h-[54px] py-1.5 px-1 rounded-2xl text-slate-300 hover:text-cyan-300 active:scale-95 transition">
+          <i class="fa-solid fa-user-shield text-base mb-1.5"></i>
+          <span class="text-[8.5px] font-extrabold uppercase tracking-tight leading-none text-center whitespace-nowrap">ADMIN</span>
+        </button>
+
+        <!-- 5. FORM BARU -->
+        <button type="button" onclick="switchView('form')"
+          class="flex flex-col items-center justify-end min-h-[54px] py-1.5 px-1 rounded-2xl text-slate-300 hover:text-cyan-300 active:scale-95 transition">
+          <i class="fa-solid fa-rotate-right text-base mb-1.5"></i>
+          <span class="text-[8.5px] font-extrabold uppercase tracking-tight leading-none text-center whitespace-nowrap">FORM BARU</span>
+        </button>
+
+      </div>
     </div>
   </nav>
 
@@ -1228,7 +1291,7 @@
       document.querySelectorAll(".nav-item").forEach(btn => {
         if (btn.id === "nav-form") return;
         btn.classList.remove("active-nav", "text-cyan-300", "bg-cyan-500/10");
-        btn.classList.add("text-slate-400");
+        btn.classList.add("text-slate-300");
       });
 
       if (viewName === "form") {
@@ -1238,7 +1301,7 @@
         }
         if (formLabel) {
           formLabel.classList.add("text-cyan-300");
-          formLabel.classList.remove("text-slate-400");
+          formLabel.classList.remove("text-slate-300");
         }
       } else {
         if (formBtn) {
@@ -1247,11 +1310,11 @@
         }
         if (formLabel) {
           formLabel.classList.remove("text-cyan-300");
-          formLabel.classList.add("text-slate-400");
+          formLabel.classList.add("text-slate-300");
         }
         const activeBtn = document.getElementById("nav-" + viewName);
         if (activeBtn) {
-          activeBtn.classList.remove("text-slate-400");
+          activeBtn.classList.remove("text-slate-300");
           activeBtn.classList.add("active-nav", "text-cyan-300", "bg-cyan-500/10");
         }
       }
